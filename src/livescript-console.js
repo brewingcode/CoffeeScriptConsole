@@ -1,9 +1,29 @@
+var getUrlParameters = function(){
+  var url, hash, map, parts;
+  url = window.location.href;
+  hash = url.lastIndexOf('#');
+  if (hash !== -1) {
+    url = url.slice(0, hash);
+  }
+  map = {};
+  parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value){
+    return map[key] = decodeURIComponent(value).split('+').join(' ');
+  });
+  return map;
+};
+
+var lang = getUrlParameters().lang
+
 var tabId = chrome.devtools.inspectedWindow.tabId;
 var err = document.getElementById('error');
 var editor = ace.edit("cc-editor");
 
 editor.setTheme("ace/theme/clouds");
-editor.session.setMode("ace/mode/livescript");
+if (lang == 'livescript') {
+    editor.session.setMode("ace/mode/livescript");
+} else {
+    editor.session.setMode("ace/mode/coffee");
+}
 editor.session.setUseSoftTabs(true);
 editor.session.setUseWrapMode(true);
 editor.session.setTabSize(2);
@@ -39,8 +59,13 @@ function compileIt(){
 
 function update(){
     try {
-        LiveScript = require('livescript');
-        var compiledSource = LiveScript.compile( editor.session.getValue(), {bare:true, header: false});
+        var compiledSource;
+        if (lang == 'livescript') {
+            LiveScript = require('livescript');
+            compiledSource = LiveScript.compile( editor.session.getValue(), {bare:true, header: false});
+        } else {
+            compiledSource = CoffeeScript.compile( editor.session.getValue(), {bare:true});
+        }
         compiled.session.setValue(compiledSource);
         err.className = 'is-hidden';
     } catch (error) {
