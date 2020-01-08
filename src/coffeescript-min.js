@@ -26413,18 +26413,9 @@ var CoffeeScript = function() {
         }.call(this), module.exports
     }(), require["./browser"]
 }();
-export default CoffeeScript;
 var VERSION = CoffeeScript.VERSION,
     compile = CoffeeScript.compile,
     evaluate = CoffeeScript.eval,
     load = CoffeeScript.load,
     run = CoffeeScript.run,
     runScripts = CoffeeScript.runScripts;
-export {
-    VERSION,
-    compile,
-    evaluate as eval,
-    load,
-    run,
-    runScripts
-};
