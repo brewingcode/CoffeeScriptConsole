@@ -7840,7 +7840,10 @@ var Document = function(textOrLines) {
 
 
     this.$detectNewLine = function(text) {
-        var match = text.match(/^.*?(\r\n|\r|\n)/m);
+        var match;
+        if (text) {
+            match = text.match(/^.*?(\r\n|\r|\n)/m);
+        }
         this.$autoNewLine = match ? match[1] : "\n";
         this._signal("changeNewLineMode");
     };
