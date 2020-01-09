@@ -51,15 +51,15 @@ function compileIt(){
 }
 
 function update(){
+    var code = editor.session.getValue();
     try {
-        var compiledSource;
         if (lang == 'livescript') {
             LiveScript = require('livescript');
-            compiledSource = LiveScript.compile( editor.session.getValue(), {bare:true, header: false});
+            compiled= LiveScript.compile( code, {bare:true, header: false});
         } else {
-            compiledSource = CoffeeScript.compile( editor.session.getValue(), {bare:true});
+            compiled = CoffeeScript.compile( code );
+            compiled = '(async function() { console.log(await ' + compiled.replace(/;\s*$/,'') + '); })();'
         }
-        compiled.session.setValue(compiledSource);
         err.className = 'is-hidden';
     } catch (error) {
         err.className = '';
