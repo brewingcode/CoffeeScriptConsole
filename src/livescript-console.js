@@ -29,17 +29,10 @@ editor.session.setUseWrapMode(true);
 editor.session.setTabSize(2);
 editor.setShowPrintMargin(false);
 
-var compiled = ace.edit("cc-results");
-compiled.setTheme("ace/theme/clouds");
-compiled.session.setMode("ace/mode/livescript");
-compiled.session.setUseSoftTabs(true);
-compiled.session.setUseWrapMode(true);
-compiled.session.setTabSize(2);
-compiled.setShowPrintMargin(false);
-
+var compiled = '';
 
 function compileIt(){
-    chrome.devtools.inspectedWindow["eval"](compiled.session.getValue(), function(result, exception) {
+    chrome.devtools.inspectedWindow["eval"](compiled, function(result, exception) {
       if (exception && (exception.isError || exception.isException)) {
           if (exception.isError) {
             err.className = '';
@@ -58,15 +51,15 @@ function compileIt(){
 }
 
 function update(){
+    var code = editor.session.getValue();
     try {
-        var compiledSource;
         if (lang == 'livescript') {
             LiveScript = require('livescript');
-            compiledSource = LiveScript.compile( editor.session.getValue(), {bare:true, header: false});
+            compiled= LiveScript.compile( code, {bare:true, header: false});
         } else {
-            compiledSource = CoffeeScript.compile( editor.session.getValue(), {bare:true});
+            compiled = CoffeeScript.compile( code );
+            compiled = '(async function() { console.log(await ' + compiled.replace(/;\s*$/,'') + '); })();'
         }
-        compiled.session.setValue(compiledSource);
         err.className = 'is-hidden';
     } catch (error) {
         err.className = '';
@@ -91,7 +84,6 @@ var compileOptions = {
 };
 
 editor.commands.addCommand(compileOptions);
-compiled.commands.addCommand(compileOptions);
 
 document.getElementById('runcc').addEventListener('click', compileIt);
 editor.session.setValue(localStorage.getItem("state" + tabId));

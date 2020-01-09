@@ -10,28 +10,18 @@
             position: fixed;
             top: 0;
             bottom: 0;
-            right: 50%;
             left: 0;
+            width: 100%;
             z-index: 1;
             background-color:#EEE;
-            font-style: Monaco, Menlo, monospace;
-            font-size: 10pt;
-        }
-        #cc-results {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 50%;
-            z-index: 1;
             font-style: Monaco, Menlo, monospace;
             font-size: 10pt;
         }
         
         #error {
             position: fixed;
-            bottom: 0;
-            right: 0;
+            bottom: 5px;
+            left: 100px;
             padding: 8px 95px 8px 15px;
             background-color: #DDD;
             color: #900;
@@ -60,7 +50,7 @@
 
         #runcc {
           position: fixed;
-          right: 5px;
+          left: 5px;
           bottom: 5px;
           z-index: 3;
         }
@@ -91,14 +81,10 @@
 </head>
 <body>
     <div id="cc-editor"></div>
-    <div id="cc-results"></div>
     <div id="error" class="is-hidden"></div>
     <button id="runcc">Run!</button>
 
-<script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
-<script src="ace/mode-coffee.js" type="text/javascript" charset="utf-8"></script>
-<script src="ace/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
-<script src="ace/theme-clouds.js" type="text/javascript" charset="utf-8"></script>
+<script src="ace/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="livescript-console.js"></script>
 
 </body>
