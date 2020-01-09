@@ -1,5 +1,5 @@
 chrome.devtools.panels.create(
-    "CoffeeScriptConsole",
+    "Coffee",
     "badge.png",
     "livescript-console.html?lang=coffeescript",
     function cb(panel) {
