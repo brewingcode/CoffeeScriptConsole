@@ -29,17 +29,10 @@ editor.session.setUseWrapMode(true);
 editor.session.setTabSize(2);
 editor.setShowPrintMargin(false);
 
-var compiled = ace.edit("cc-results");
-compiled.setTheme("ace/theme/clouds");
-compiled.session.setMode("ace/mode/livescript");
-compiled.session.setUseSoftTabs(true);
-compiled.session.setUseWrapMode(true);
-compiled.session.setTabSize(2);
-compiled.setShowPrintMargin(false);
-
+var compiled = '';
 
 function compileIt(){
-    chrome.devtools.inspectedWindow["eval"](compiled.session.getValue(), function(result, exception) {
+    chrome.devtools.inspectedWindow["eval"](compiled, function(result, exception) {
       if (exception && (exception.isError || exception.isException)) {
           if (exception.isError) {
             err.className = '';
@@ -91,7 +84,6 @@ var compileOptions = {
 };
 
 editor.commands.addCommand(compileOptions);
-compiled.commands.addCommand(compileOptions);
 
 document.getElementById('runcc').addEventListener('click', compileIt);
 editor.session.setValue(localStorage.getItem("state" + tabId));
