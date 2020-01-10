@@ -7830,10 +7830,12 @@ var Document = function(textOrLines) {
     };
     if ("aaa".split(/a/).length === 0) {
         this.$split = function(text) {
+            if (!text) return [];
             return text.replace(/\r\n|\r/g, "\n").split("\n");
         };
     } else {
         this.$split = function(text) {
+            if (!text) return [];
             return text.split(/\r\n|\r|\n/);
         };
     }
