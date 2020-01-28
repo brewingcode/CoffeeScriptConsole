@@ -7985,6 +7985,8 @@ var Document = function(textOrLines) {
         this.insertMergedLines({row: row, column: column}, lines);
     };    
     this.insertMergedLines = function(position, lines) {
+        if (!lines) lines = [];
+        if (lines.length === 0) lines.push('');
         var start = this.clippedPos(position.row, position.column);
         var end = {
             row: start.row + lines.length - 1,
