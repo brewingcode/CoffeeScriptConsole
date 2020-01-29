@@ -14,12 +14,16 @@ extension from disk.
   * Syntax highlighting provided via the ACE editor http://ace.ajax.org/
   * CoffeeScript compilation http://coffeescript.org/
   * Command+Enter or Shift+Enter to run the current script
-  * Extra javascript functions/libraries added to `window`:
+  * Extra libraries and functions for convenience:
     - `$` (jquery)
     - `_` (lodash)
     - `moment` (with moment-timezone support)
-    - `branch()` and `nodes()` (custom helpers)
     - `mdtable()` to [convert array-of-arrays to Markdown](https://github.com/wooorm/markdown-table)
+    - `branch()` to isolate a deep DOM node
+    - `node()` to get the result of `branch()` as a list
+    - `$.flattext()` to normalize and strip whitespace from `$.text()`
+
+![example screenshot](./screenshot.png)
 
 ## Credits
 
