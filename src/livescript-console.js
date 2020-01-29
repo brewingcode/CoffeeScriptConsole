@@ -18,6 +18,15 @@ var tabId = chrome.devtools.inspectedWindow.tabId;
 var err = document.getElementById('error');
 var editor = ace.edit("cc-editor");
 
+editor.setOptions({
+  keyboardHandler: function(a,b,c,d,e) {
+    console.log("editor.keyboardHandler():", arguments);
+    if (e && e.key === '?') {
+      e.stopPropagation();
+    }
+  }
+});
+
 editor.setTheme("ace/theme/clouds");
 if (lang == 'livescript') {
     editor.session.setMode("ace/mode/livescript");
