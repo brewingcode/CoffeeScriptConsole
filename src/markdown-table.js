@@ -42,7 +42,8 @@ window.mdtable = function(table, options) {
     var padding = settings.padding !== false;
     var start = settings.delimiterStart !== false;
     var end = settings.delimiterEnd !== false;
-    var align = (settings.align || []).concat();
+    var align = settings.align || [];
+    align = typeof align === 'string' ? align.split('') : align.concat();
     var alignDelimiters = settings.alignDelimiters !== false;
     var alignments = [];
     var stringLength = settings.stringLength || defaultStringLength;
