@@ -26,4 +26,11 @@ window.nodes = function(node, prop) {
     classes.reverse();
     return classes
 };
+$.fn.flattext = function() {
+    return $(this)
+        .text()
+        .replace(/\n/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+};
 void 0;
