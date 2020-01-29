@@ -3,6 +3,8 @@ chrome.devtools.panels.create(
     "badge.png",
     "livescript-console.html?lang=coffeescript",
     function cb(panel) {
-        panel.onShown.addListener(function(win){ win.focus(); });
+        panel.onShown.addListener(function(win){
+          chrome.runtime.sendMessage('coffeeconsole-shown');
+        });
     }
 );

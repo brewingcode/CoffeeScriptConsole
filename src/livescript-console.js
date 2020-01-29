@@ -109,5 +109,9 @@ editor.commands.addCommand(compileOptions);
 
 document.getElementById('runcc').addEventListener('click', compileIt);
 editor.session.setValue(localStorage.getItem("state" + tabId));
-schedule(function(){ editor.focus();}, 20);
 
+chrome.runtime.onMessage.addListener(function(req) {
+  if (req === 'coffeeconsole-shown') {
+    editor.focus();
+  }
+});
