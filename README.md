@@ -15,13 +15,13 @@ extension from disk.
   * CoffeeScript compilation http://coffeescript.org/
   * Command+Enter or Shift+Enter to run the current script
   * Extra libraries and functions for convenience:
-    - `$` (jquery)
-    - `_` (lodash)
-    - `moment` (with moment-timezone support)
+    - jquery (`$`), lodash (`_`), and moment (`moment`) along with
+      moment-timezone
     - `mdtable()` to [convert array-of-arrays to Markdown](https://github.com/wooorm/markdown-table)
     - `branch()` to isolate a deep DOM node
     - `node()` to get the result of `branch()` as a list
     - `$.flattext()` to normalize and strip whitespace from `$.text()`
+    - `commify()` to place commas as thousands separators
 
 ![example screenshot](./screenshot.png)
 
