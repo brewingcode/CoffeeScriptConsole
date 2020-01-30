@@ -1,31 +1,34 @@
+// Clones a branch of the DOM that has `node` as its bottom leaf, and returns
+// the root node.
 window.branch = function(node) {
     var next, nodes, root;
     nodes = [];
     while (node) {
         nodes.push(node.cloneNode(false));
-        node = node.parentElement
+        node = node.parentElement;
     }
     root = node = nodes.pop();
     while (nodes.length) {
         next = nodes.pop();
         node.appendChild(next);
-        node = next
+        node = next;
     }
-    return root
+    return root;
 };
-window.nodes = function(node, prop) {
-    var classes;
-    classes = [];
-    if (prop == null) {
-        prop = "className"
-    }
+
+// Similar to `branch()`, but doesn't clone anything and returns each DOM node
+// in a flat array, ordered from root -> leaf.
+window.nodes = function(node) {
+    var results = [];
     while (node) {
-        classes.push(node[prop]);
-        node = node.parentElement
+        results.push(node);
+        node = node.parentElement;
     }
-    classes.reverse();
-    return classes
+    results.reverse();
+    return results;
 };
+
+// Flattens out whitespace from the results of $.text().
 $.fn.flattext = function() {
     return $(this)
         .text()
