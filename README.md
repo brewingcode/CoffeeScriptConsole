@@ -11,16 +11,17 @@ extension from disk.
 
 ## Features
 
-  * Syntax highlighting provided via the ACE editor http://ace.ajax.org/
-  * CoffeeScript compilation http://coffeescript.org/
+  * Syntax highlighting provided via the [ACE editor](http://ace.ajax.org/)
+  * [CoffeeScript](http://coffeescript.org/) compilation
   * Command+Enter or Shift+Enter to run the current script
-  * Extra libraries and functions for convenience:
-    - jquery (`$`), lodash (`_`), and moment (`moment`) along with
-      moment-timezone
-    - `mdtable()` to [convert array-of-arrays to Markdown](https://github.com/wooorm/markdown-table)
-    - `branch()` to isolate a deep DOM node
-    - `node()` to get the result of `branch()` as a list
-    - `$.flattext()` to normalize and strip whitespace from `$.text()`
+  * Included libraries for convenience:
+    - `$` for [jQuery](https://api.jquery.com/)
+    - `_` for [lodash](https://lodash.com/docs/4.17.15)
+    - `moment` for [moment](https://momentjs.com/docs/), including moment-timezone
+    - `mdtable()` function adapted from [markdown-table](https://github.com/wooorm/markdown-table)
+  * Helper functions from [custom-helpers.js](./src/custom-helpers.js):
+    - `$.flattext()` added to jQuery to flatten whitespace
+    - `branch()` and `nodes()` to help crawl around the DOM
     - `commify()` to place commas as thousands separators
 
 ![example screenshot](./screenshot.png)
@@ -32,4 +33,3 @@ By [Geza Kovacs](https://github.com/gkovacs)
 Based on [LiveScript Console](https://github.com/gkovacs/LiveScriptConsole),
 [CoffeeConsole 2](https://github.com/colldo/CoffeeConsole2), and
 [CoffeeConsole](https://github.com/snookca/CoffeeConsole)
-
