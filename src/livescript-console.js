@@ -88,7 +88,9 @@ function update(){
         err.className = '';
         err.innerHTML = error.message;
     }
-    localStorage.setItem("state" + tabId, editor.session.getValue());
+    chrome.devtools.inspectedWindow.eval("window.location.href", function(url) {
+      localStorage.setItem("csconsole:" + url, editor.session.getValue());
+    });
 }
 
 schedule = function(fn, timeout) {
@@ -107,9 +109,11 @@ var compileOptions = {
 };
 
 editor.commands.addCommand(compileOptions);
-
 document.getElementById('runcc').addEventListener('click', compileIt);
-editor.session.setValue(localStorage.getItem("state" + tabId));
+
+chrome.devtools.inspectedWindow.eval("window.location.href", function(url) {
+  editor.session.setValue(localStorage.getItem("csconsole:" + url));
+});
 
 chrome.runtime.onMessage.addListener(function(req) {
   if (req === 'coffeeconsole-shown') {
