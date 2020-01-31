@@ -20,6 +20,7 @@ extension from disk.
     - `moment` for [moment](https://momentjs.com/docs/), including moment-timezone
     - `Sugar` for [Sugar.js](https://sugarjs.com/quickstart//)
     - `mdtable()` function adapted from [markdown-table](https://github.com/wooorm/markdown-table)
+      with a few small additions
   * Helper functions from [custom-helpers.js](./src/custom-helpers.js):
     - `$.flattext()` added to jQuery to flatten whitespace
     - `branch()` and `nodes()` to help crawl around the DOM

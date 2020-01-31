@@ -228,6 +228,13 @@ window.mdtable = function(table, options) {
       lines.push(line);
     }
 
+    if (settings.noalign) {
+      // Removes the line of dashes that denote both alignment and the table
+      // headers. Note this style of markdown table is only supported by
+      // some oddball markdowns (eg pandoc) and IS NOT supported by Github.
+      lines.splice(1, 1);
+    }
+
     return lines.join(lineFeed);
   })();
 
