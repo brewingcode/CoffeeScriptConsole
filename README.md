@@ -24,7 +24,15 @@ extension from disk.
     - `branch()` and `nodes()` to help crawl around the DOM
     - `commify()` to place commas as thousands separators
 
-![example screenshot](./screenshot.png)
+## Examples
+
+### Create a Markdown table of github commits
+
+![example: markdown table of commits from github.com](./github-commits.png)
+
+### Show the top 10 posts on HN
+
+![example: markdown table of top 10 HN posts](./hn-top-scoring.png)
 
 ## Credits
 
