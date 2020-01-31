@@ -7,6 +7,7 @@ deps = [
   'lodash-4.17.15'
   'moment-2.24.0'
   'moment-timezone-0.5.27'
+  'sugar-2.0.4'
   'custom-helpers'
   'markdown-table'
 ]

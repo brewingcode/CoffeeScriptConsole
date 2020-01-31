@@ -18,6 +18,7 @@ extension from disk.
     - `$` for [jQuery](https://api.jquery.com/)
     - `_` for [lodash](https://lodash.com/docs/4.17.15)
     - `moment` for [moment](https://momentjs.com/docs/), including moment-timezone
+    - `Sugar` for [Sugar.js](https://sugarjs.com/quickstart//)
     - `mdtable()` function adapted from [markdown-table](https://github.com/wooorm/markdown-table)
   * Helper functions from [custom-helpers.js](./src/custom-helpers.js):
     - `$.flattext()` added to jQuery to flatten whitespace
