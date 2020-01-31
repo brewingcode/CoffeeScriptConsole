@@ -26,15 +26,16 @@ extension from disk.
     - `branch()` and `nodes()` to help crawl around the DOM
     - `commify()` to place commas as thousands separators
 
-## Examples
+## Example
 
-### Create a Markdown table of github commits
+### A table of the most recent HN posts
 
-![example: markdown table of commits from github.com](./github-commits.png)
+This uses jQuery to parse out pairs of `<tr>` elements into an array of
+objects, which is then chained through lodash before being fed to `mdtable()`.
+Sorting is done by date, which requires parsing humanized date strings with
+sugar.js (ie, parsing "2 hours ago" to a sortable time value).
 
-### Show the top 10 posts on HN
-
-![example: markdown table of top 10 HN posts](./hn-top-scoring.png)
+![example: most recent HN posts](./hn-most-recent.png)
 
 ## Credits
 
