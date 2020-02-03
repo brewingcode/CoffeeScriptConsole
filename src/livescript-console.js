@@ -13,8 +13,6 @@ var getUrlParameters = function(){
 };
 
 var lang = getUrlParameters().lang
-
-var tabId = chrome.devtools.inspectedWindow.tabId;
 var err = document.getElementById('error');
 var editor = ace.edit("cc-editor");
 
