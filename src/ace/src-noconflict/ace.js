@@ -4910,6 +4910,11 @@ var KeyBinding = function(editor) {
         var success = false;
         var commands = this.$editor.commands;
 
+        // prevent Chrome devtools from using "?" to show help/settings for devtools
+        if (e && e.key === '?') {
+            e.stopPropagation();
+        }
+
         for (var i = this.$handlers.length; i--;) {
             toExecute = this.$handlers[i].handleKeyboard(
                 this.$data, hashId, keyString, keyCode, e
