@@ -12,21 +12,12 @@ deps = [
   'markdown-table'
 ]
 
-file = 'livescript-console.js'
-newscript = ''
-injecting = false
+script = 'var csconsole_injections = [\n'
 
-for line in fs.readFileSync(file).toString().split /\n/
-  if line.match /\.forEach/
-    injecting = false
+for dep in deps
+  content = fs.readFileSync "#{dep}.js"
+  script += "  /* #{dep} */ '" + Buffer.from(content).toString('base64') + "',\n"
 
-  if not injecting
-    newscript += line + '\n'
+script += '];'
 
-  if line.match /\[ \/\/ INJECT/
-    injecting = true
-    for f in deps
-      content = fs.readFileSync "#{f}.js"
-      newscript += "        /* #{f} */ '" + Buffer.from(content).toString('base64') + "',\n"
-
-fs.writeFileSync file, newscript
+fs.writeFileSync 'csconsole_injections.js', script
