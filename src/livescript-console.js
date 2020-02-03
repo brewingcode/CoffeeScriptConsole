@@ -38,7 +38,11 @@ function compileIt(){
     // inject libraries into the context of the eval'd compiled code
     // there is probably a better way to do this....
     csconsole_injections.forEach(function(chunk){
-        chrome.devtools.inspectedWindow['eval'](atob(chunk));
+        chrome.devtools.inspectedWindow['eval'](atob(chunk), function(result, exception) {
+            if (exception) {
+                console.error('error evaling chunk:', chunk.slice(0, 30), exception.description);
+            }
+        });
     });
 
     chrome.devtools.inspectedWindow["eval"](compiled, function(result, exception) {
