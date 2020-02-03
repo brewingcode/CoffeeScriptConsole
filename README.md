@@ -11,9 +11,11 @@ extension from disk.
 
 ## Features
 
-  * Syntax highlighting provided via the [ACE editor](http://ace.ajax.org/)
-  * [CoffeeScript](http://coffeescript.org/) compilation
-  * Command+Enter or Shift+Enter to run the current script
+  * Write [CoffeeScript](https://coffeescript.org) in [ACE editor](http://ace.ajax.org/):
+    - Vim keybindings
+    - Syntax highlighting
+    - Follows the devtools theme for dark mode
+    - Command+Enter or Shift+Enter to run the current script
   * Included libraries for convenience:
     - `$` for [jQuery](https://api.jquery.com/)
     - `_` for [lodash](https://lodash.com/docs/4.17.15)
