@@ -24,10 +24,10 @@ editor.setOptions({
     if (e && e.key === '?') {
       e.stopPropagation();
     }
-  }
+  },
+  theme: "ace/theme/" + (chrome.devtools.panels.themeName === 'default' ? 'clouds' : 'monokai'),
 });
 
-editor.setTheme("ace/theme/clouds");
 if (lang == 'livescript') {
     editor.session.setMode("ace/mode/livescript");
 } else {
