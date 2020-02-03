@@ -31,7 +31,7 @@ margin: -1px 0 0 -1px;\
 border: 1px solid #49483E\
 }\
 .ace-monokai .ace_marker-layer .ace_active-line {\
-background: #202020\
+background: #14522B\
 }\
 .ace-monokai .ace_gutter-active-line {\
 background-color: #272727\
