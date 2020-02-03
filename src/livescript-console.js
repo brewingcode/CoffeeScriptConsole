@@ -17,14 +17,18 @@ var err = document.getElementById('error');
 var editor = ace.edit("cc-editor");
 
 editor.setOptions({
-  keyboardHandler: function(a,b,c,d,e) {
-    console.log("editor.keyboardHandler():", arguments);
-    if (e && e.key === '?') {
-      e.stopPropagation();
-    }
-  },
   theme: "ace/theme/" + (chrome.devtools.panels.themeName === 'default' ? 'clouds' : 'monokai'),
 });
+
+var keyEater = function(a,b,c,d,e) {
+  console.log("keyEater():", arguments);
+  if (e && e.key === '?') {
+    e.stopPropagation();
+  }
+};
+
+editor.setKeyboardHandler('ace/keyboard/vim');
+editor.keyBinding.addKeyboardHandler(keyEater);
 
 if (lang == 'livescript') {
     editor.session.setMode("ace/mode/livescript");
