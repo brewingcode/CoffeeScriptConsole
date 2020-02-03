@@ -20,7 +20,17 @@ editor.setOptions({
   theme: "ace/theme/" + (chrome.devtools.panels.themeName === 'default' ? 'clouds' : 'monokai'),
 });
 
-editor.setKeyboardHandler('ace/keyboard/vim');
+if (typeof browser === 'undefined') {
+  // in Chrome, hopefully
+  editor.setKeyboardHandler('ace/keyboard/vim');
+}
+else {
+  // in Firefox
+  // The escape key is stolen by Firefox in order to toggle the devtools
+  // console, rather the esc key going to Ace in order to kick vim into normal
+  // mode. This makes using vim feel like a touchbar Macbook Pro (oh, burn!)
+  // and so I'm disabling vim mode.
+}
 
 if (lang == 'livescript') {
     editor.session.setMode("ace/mode/livescript");
