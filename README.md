@@ -1,4 +1,4 @@
-# CoffeeScript Console 3
+# CoffeeScript Console 4
 
 A Chrome/Firefox extension to allow writing of
 [CoffeeScript](http://coffeescript.org/) within the Web Inspector and run it
