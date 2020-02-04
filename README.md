@@ -1,18 +1,25 @@
 # CoffeeScript Console 3
 
-A Chrome extension to allow writing of
+A Chrome/Firefox extension to allow writing of
 [CoffeeScript](http://coffeescript.org/) within the Web Inspector and run it
 within the context of the current window, just like the built-in console.
 
 ## Installation
 
+### Chrome
+
 Enable `Developer mode` in the Extensions settings, and load the unpacked
-extension from disk.
+extension from the `src` directory from disk.
+
+### Firefox
+
+Enable `Temporary Add-ons` at `about:debugging#/runtime/this-firefox`, and
+load the `src/manifest.json` file from disk.
 
 ## Features
 
   * Write [CoffeeScript](https://coffeescript.org) in [ACE editor](http://ace.ajax.org/):
-    - Vim keybindings
+    - Vim keybindings (in Chrome)
     - Syntax highlighting
     - Follows the devtools theme for dark mode
     - Command+Enter or Shift+Enter to run the current script
