@@ -16,9 +16,25 @@ var lang = getUrlParameters().lang
 var err = document.getElementById('error');
 var editor = ace.edit("cc-editor");
 
-editor.setOptions({
-  theme: "ace/theme/" + (chrome.devtools.panels.themeName === 'default' ? 'clouds' : 'monokai'),
-});
+function setEditorTheme(theme) {
+  if (!theme) {
+    theme = chrome.devtools.panels.themeName;
+  }
+  if (theme === 'dark' || theme == 'firebug') {
+    editor.setTheme('ace/theme/monokai');
+  }
+  else {
+    editor.setTheme('ace/theme/clouds');
+  }
+}
+
+setEditorTheme();
+
+if (chrome.devtools.panels.onThemeChanged) {
+  chrome.devtools.panels.onThemeChanged.addListener(function(theme) {
+    setEditorTheme(theme);
+  });
+}
 
 if (typeof browser === 'undefined') {
   // in Chrome, hopefully
