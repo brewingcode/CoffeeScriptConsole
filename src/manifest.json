@@ -5,7 +5,10 @@
 	"version": "1.2.0",
 	"description": "A CoffeeScript console within Dev Tools. Based on Coffee Console 3.",
 	"devtools_page": "coffee.html",
-  "icons": { "128": "128.png" },
+  "icons": {
+  	"48": "icon-48.png",
+    "128": "icon-128.png"
+  },
 	"minimum_chrome_version" : "18",
 	"content_security_policy": "script-src 'self'; object-src 'self'",
 	"permissions": []
