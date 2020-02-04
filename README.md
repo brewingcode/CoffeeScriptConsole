@@ -8,8 +8,9 @@ within the context of the current window, just like the built-in console.
 
 ### Chrome
 
-Enable `Developer mode` in the Extensions settings, and load the unpacked
-extension from the `src` directory from disk.
+Enable `Developer mode` via the toggle in the upper-right corner at
+`chrome://extensions/`, and load the unpacked extension from the `src`
+directory from disk.
 
 ### Firefox
 
@@ -48,8 +49,7 @@ sugar.js (ie, parsing "2 hours ago" to a sortable time value).
 
 ## Credits
 
-By [Geza Kovacs](https://github.com/gkovacs)
-
-Based on [LiveScript Console](https://github.com/gkovacs/LiveScriptConsole),
+Based on
+[CoffeeScript Console 3](https://github.com/gkovacs/CoffeeScriptConsole),
 [CoffeeConsole 2](https://github.com/colldo/CoffeeConsole2), and
 [CoffeeConsole](https://github.com/snookca/CoffeeConsole)
