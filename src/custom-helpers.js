@@ -36,18 +36,3 @@ $.fn.flattext = function() {
         .replace(/\s+/g, ' ')
         .trim()
 };
-
-window.commify = function(s) {
-    var num, decimals, m, ref;
-    if (m = s.toString().match(/(\d+)(\.(\d+))?/)) {
-      decimals = (ref = m[3]) != null ? ref.replace(/(\d{3})(?=\d)/g, function(a,b) {
-        return b + ',';
-      }) : void 0;
-      num = m[1].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (decimals ? '.' + decimals : '');
-      if (s.toString().match(/^\s*-/)) {
-          num = '-' + num;
-      }
-    }
-
-    return num;
-};
