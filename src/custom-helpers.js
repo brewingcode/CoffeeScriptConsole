@@ -36,3 +36,7 @@ $.fn.flattext = function() {
         .replace(/\s+/g, ' ')
         .trim()
 };
+
+window.tsort = function() { 
+    return $($0).parents('table').first().tablesorter();
+};

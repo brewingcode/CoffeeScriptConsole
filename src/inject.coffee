@@ -10,6 +10,7 @@ deps = [
   'sugar-2.0.4'
   'custom-helpers'
   'markdown-table'
+  'jquery.tablesorter.min'
 ]
 
 script = 'var csconsole_injections = [\n'
