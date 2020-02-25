@@ -9,7 +9,8 @@ deps = [
   'moment-timezone-0.5.27'
   'sugar-2.0.4'
   'custom-helpers'
-  'markdown-table'
+  'mdtable'
+  'commify'
   'jquery.tablesorter.min'
 ]
 
