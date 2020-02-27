@@ -37,6 +37,19 @@ $.fn.flattext = function() {
         .trim()
 };
 
-window.tsort = function() { 
-    return $($0).parents('table').first().tablesorter();
+window.tsort = function(node) {
+    if (!node) {
+        if ($0) {
+            if ($0.tagName === 'TABLE') {
+                node = $($0);
+            }
+            else {
+                node = $($0).parents('table').first()
+            }
+        }
+        else {
+            node = $('table').first()
+        }
+    }
+    return $(node).tablesorter();
 };
