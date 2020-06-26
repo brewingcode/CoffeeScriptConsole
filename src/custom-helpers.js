@@ -37,6 +37,7 @@ $.fn.flattext = function() {
         .trim()
 };
 
+// Initialize a node as a tablesort (jquery plugin).
 window.tsort = function(node) {
     if (!node) {
         if ($0) {
@@ -52,4 +53,27 @@ window.tsort = function(node) {
         }
     }
     return $(node).tablesorter();
+};
+
+// Convert a <table> to an array of rows, with the headers as the first row.
+//   - table is required to have `thead > tr > th` and `tbody > tr > td`
+//   - only rows that have the same number of <td>s as <th>s are included
+window.table2json = function(node) {
+    if (!node) node = $0;
+    while (node.tagName !== 'TABLE') {
+        node = node.parentNode;
+    }
+    var headers = $('thead > tr > th', node).map(function() {
+        return $(this).flattext();
+    }).toArray();
+    var rows = [headers];
+    $('tbody > tr', node).each(function() {
+         var row = $('> td', this).map(function() {
+             return $(this).flattext();
+         }).toArray();
+         if (row.length == headers.length) {
+             rows.push(row);
+         }
+    });
+    return rows;
 };
